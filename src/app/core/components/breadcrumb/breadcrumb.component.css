@@ -1,0 +1,12 @@
+.breadcrump_top a {
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    color: #777CEA;
+}
+
+.breadcrump_top a span {
+    color: #748494;
+    font-size: 14px;
+    margin-right: 3px;
+}

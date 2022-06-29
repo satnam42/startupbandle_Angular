@@ -1,0 +1,189 @@
+.box{
+    width: 100%;
+    box-sizing: border-box;
+    margin: auto;    
+    
+    padding: 10px;
+    & h1{
+        margin-top: 100px;
+        text-align: center;        
+        font-size: 2.5rem;
+    }
+    & p{
+        
+        font-size: 1.3rem;
+        text-align: center;
+        color: grey;
+        margin-top: 25px;
+        margin-bottom: 10px;
+    }
+.cardBox{
+    width: 100%;
+    display: flex;    
+    & .card{
+        flex-direction: row;
+        padding: 50px;
+       
+        & h2{
+            margin-top: 20px;
+            text-align: center;
+            font-size: 2rem;
+        }
+        & h6{
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.3rem;
+            color: grey;
+        }
+        & img{
+            vertical-align:center;
+            width: 100px;
+            height: 100px;            
+            margin-left: 120px;
+            margin-bottom: 20px;
+        }
+    }
+    .cards{
+        width: 400px; 
+        padding: 30px;   
+        
+        & h2{
+            text-align: center;
+            
+        }
+
+        & h6{
+            width: 300px;
+            text-align: center;
+            margin-left: 25px;
+        }
+
+    }
+    .cards:hover{
+        transform: scale(1.1 );
+    }
+}
+}
+.box2{
+    width: 100%;
+    background-color: rgb(224, 250, 252);
+    padding: 100px;
+    
+    & .container-box{
+        display: flex;
+        flex-direction: row;
+        margin:auto ;
+        padding: 10px;
+
+        & #inner-box-img{
+            margin-right: 10px;
+
+            & img, svg {
+                vertical-align: middle;
+                width: 400px;
+                height: 400px;
+                margin: 10px auto 10px auto;
+            }
+        }
+        #inner-box{
+
+            & h1{
+                font-size: 2rem;
+                font-weight: bold;
+                margin-top: 30px;
+            }
+            & h6{
+                font-size: 1.2rem;
+                color: grey;
+                margin-top: 30px;
+            }
+            .fa{
+                color: rgb(10, 190, 10);
+                
+            }
+        }
+        .icon{
+            display: flex;
+            margin-top: 10px;
+            
+            & p{
+                font-size: 1.2rem;
+                margin-left: 10px;
+                color: grey;
+                margin-top: 10px;
+            }
+            & i{
+                margin-top: 10px;
+            }
+        }
+       
+        }
+        & .btn{
+            cursor: pointer;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+    }      
+
+.boxes{
+    padding: 40px;
+    display: flex;
+    flex-direction: row;
+    
+    & .boxes-box{
+        margin: auto;
+        margin-bottom: 0px;
+        padding: 20px;
+
+        & img{
+            width: 50px;
+            height: 50px;
+            vertical-align: center;
+           
+        }
+        & h6{
+            text-align: left;
+            font-size: larger;
+            font-weight: bold;
+        }        
+            & #fa-envelope-open{
+              
+                color: rgb(53, 98, 247);
+            }
+            & #fa-diamond{
+                color: yellow;
+            }
+            & #fa-file{
+                color: green;
+            }  
+       
+    }
+    .boxes-box-innerBox{
+        display: flex;
+        margin-top: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        width: 100%;
+        & h6{
+            width: 400px;
+            font-size: 1.3rem;
+            margin-left: 40px;
+        }
+        & p{
+            width: 400px;
+            margin-top: 35px;
+            margin-left: -400px;
+            font-size: 1.2rem;
+            color: grey;
+           
+        }
+    }
+    .boxes-box-innerBox:hover{
+        cursor: pointer;
+    }
+   
+}
+img, svg {
+    vertical-align: middle;
+    width: 100%;
+}

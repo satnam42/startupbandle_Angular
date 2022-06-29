@@ -1,0 +1,71 @@
+
+#nav{
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    margin: auto;
+    font-weight: 300;
+    font-size: large;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: auto;
+    z-index: 99;
+    & #navlogo{
+        font-size: xx-large;
+        font-weight: bold;
+        color: white;
+        letter-spacing: 2px;
+        margin-left: 20px;
+    }
+    & #navlogo:hover{
+        cursor: pointer;
+    }
+}
+.navbarNav{
+    width: 80%;
+    display:flex;
+    float: left;
+    // margin-left: 200px;
+    & .navlist{
+       display: flex;
+       list-style: none;
+       text-align: center;
+       margin: auto;             
+    }    
+}
+.nav-link{
+    color: white;
+    margin: auto;
+    font-size: 1.1rem;
+    font-weight: 5;
+}
+.nav-link:hover{
+    color: blue;
+    background-color: white;
+}
+#loginBtn{
+    background-color: rgb(87, 87, 221);
+    margin-right: 10px;
+    font-size: medium;
+}
+#loginBtn:hover{
+    background-color: white;
+    color: blue;
+}
+#createAccountBtn{
+    background-color: rgb(87, 87, 221);
+    margin-right: 10px;
+    font-size: medium;
+}
+#createAccountBtn:hover{
+    background-color: white;
+    color: blue;
+}
+// .btn{
+//     border-radius: 20px;
+//     background-color:rgb(87, 87, 221);
+//     margin: 20px;
+// }
+// .btn:hover{
+//     background-color: white;
+//     color: rgb(223, 29, 29);
+// }

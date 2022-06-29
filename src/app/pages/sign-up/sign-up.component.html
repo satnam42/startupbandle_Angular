@@ -1,0 +1,144 @@
+<body>
+
+    <ng2-toasty></ng2-toasty>
+    <div class="otp_outer">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-6 sign_outer">
+                    <div class="otp_form">
+
+                        <div class="sing_text">
+                            <!-- <img src="assets/hand_icon.svg" alt="Hand icon"> -->
+                            <h1>Create account</h1>
+                            <!-- <h3>We need some of your details to setup an account for you</h3> -->
+                        </div>
+                        <div class="tab_outer">
+                            <div class="tab-content">
+                                <div class="tab-pane active" role="tabpanel">
+                                    <div class="form" [formGroup]="parentForm">
+
+                                        <div class="form-group">
+                                            <label>First Name</label>
+                                            <div class="input_outer">
+                                                <input type="text" class="form-control" placeholder=""
+                                                    formControlName="firstName" [(ngModel)]="userData.firstName">
+                                                <!-- <p class="cant_blank"
+                                                    *ngIf="parentForm.controls['name'].hasError('required') && parentForm.controls['name'].touched">
+                                                    CAN'T LEAVE IT BLANK</p> -->
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label>Last Name</label>
+                                            <div class="input_outer">
+                                                <input type="text" class="form-control" placeholder=""
+                                                    formControlName="lastName" [(ngModel)]="userData.lastName">
+                                                <!-- <p class="cant_blank"
+                                                    *ngIf="parentForm.controls['name'].hasError('required') && parentForm.controls['name'].touched">
+                                                    CAN'T LEAVE IT BLANK</p> -->
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <div class="input_outer">
+                                                <input type="text" class="form-control" placeholder="Type"
+                                                    formControlName="email" [(ngModel)]="userData.email">
+                                                <!-- <p class="cant_blank"
+                                                    *ngIf="parentForm.controls['email'].hasError('required') && parentForm.controls['email'].touched">
+                                                    CAN'T LEAVE IT BLANK</p>
+                                                <p class="cant_blank"
+                                                    *ngIf="parentForm.controls['email'].hasError('email') && parentForm.controls['email'].touched">
+                                                    INVALID EMAIL ADDRESS</p> -->
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Select Password</label>
+                                            <div class="input_outer password">
+                                                <input type="password" class="form-control" placeholder="Type"
+                                                    placeholder="Select a Strong Password" formControlName="password"
+                                                    [(ngModel)]="userData.password" [type]="hide ? 'password' : 'text'">
+                                                <mat-icon class="field-icon" *ngIf="hide" (click)="onPassword()"><svg
+                                                        width="17" height="13" viewBox="0 0 17 13" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M0.875 6.375C0.875 6.375 3.875 1.125 8.375 1.125C12.875 1.125 15.875 6.375 15.875 6.375C15.875 6.375 12.875 11.625 8.375 11.625C3.875 11.625 0.875 6.375 0.875 6.375Z"
+                                                            stroke="#C5CED6" stroke-miterlimit="10"
+                                                            stroke-linecap="square" />
+                                                        <path
+                                                            d="M8.375 8.625C9.61764 8.625 10.625 7.61764 10.625 6.375C10.625 5.13236 9.61764 4.125 8.375 4.125C7.13236 4.125 6.125 5.13236 6.125 6.375C6.125 7.61764 7.13236 8.625 8.375 8.625Z"
+                                                            stroke="#C5CED6" stroke-miterlimit="10"
+                                                            stroke-linecap="square" />
+                                                    </svg></mat-icon>
+                                                <mat-icon class="field-icon" *ngIf="!hide" (click)="onPassword()"><svg
+                                                        width="17" height="13" viewBox="0 0 17 13" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M0.875 6.375C0.875 6.375 3.875 1.125 8.375 1.125C12.875 1.125 15.875 6.375 15.875 6.375C15.875 6.375 12.875 11.625 8.375 11.625C3.875 11.625 0.875 6.375 0.875 6.375Z"
+                                                            stroke="url(#paint0_linear)" stroke-miterlimit="10"
+                                                            stroke-linecap="square" />
+                                                        <path
+                                                            d="M8.375 8.625C9.61764 8.625 10.625 7.61764 10.625 6.375C10.625 5.13236 9.61764 4.125 8.375 4.125C7.13236 4.125 6.125 5.13236 6.125 6.375C6.125 7.61764 7.13236 8.625 8.375 8.625Z"
+                                                            stroke="url(#paint1_linear)" stroke-miterlimit="10"
+                                                            stroke-linecap="square" />
+                                                        <defs>
+                                                            <linearGradient id="paint0_linear" x1="-11.5163" y1="11.625"
+                                                                x2="13.788" y2="11.625" gradientUnits="userSpaceOnUse">
+                                                                <stop offset="0.166667" stop-color="#B21F6B" />
+                                                                <stop offset="1" stop-color="#F15A29" />
+                                                            </linearGradient>
+                                                            <linearGradient id="paint1_linear" x1="2.40761" y1="8.625"
+                                                                x2="9.99891" y2="8.625" gradientUnits="userSpaceOnUse">
+                                                                <stop offset="0.166667" stop-color="#B21F6B" />
+                                                                <stop offset="1" stop-color="#F15A29" />
+                                                            </linearGradient>
+                                                        </defs>
+                                                    </svg></mat-icon>
+                                                <!-- <p class="cant_blank"
+                                                    *ngIf="parentForm.controls['password'].hasError('required') && parentForm.controls['password'].touched">
+                                                    CAN'T LEAVE IT BLANK</p> -->
+
+                                            </div>
+                                        </div>
+                                        <!-- <div class="row forgot_password">
+                                            <div class="col-12 forgot_text">
+                                                <p> By clicking sign up I hereby agree with Letsplay’s
+                                                    <a [routerLink]="['/term-condition']">Terms & Conditions</a>
+                                                </p>
+                                            </div>
+                                        </div> -->
+                                        <div class="sign_in_btn">
+                                            <button class="SignBtn" (click)="signup()"
+                                                [disabled]="parentForm.invalid">Sign up</button>
+                                            <button class="SignBtn cancel" routerLink="/login">Cancel</button>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row forgot_password">
+                                        <div class="col-12 forgot_text">
+                                            <p>Already a member? <a routerLink="/login">SIGN In</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="copyright_text">
+                            <!-- <p>© 2020 Letsplay Holdings Inc.</p> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="otp_img">
+                        <img src="./assets/signin.jpg" alt="Sign Up Image" class="img-fluid">
+                        <div class="otp_img_overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<ngx-ui-loader></ngx-ui-loader>

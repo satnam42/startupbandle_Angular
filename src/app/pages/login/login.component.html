@@ -1,0 +1,129 @@
+<body>
+
+    <div class="otp_outer">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-md-6 sign_outer">
+                    <div class="otp_form">
+
+                        <div class="sing_text">
+                            <!-- <img src="assets/hand_icon.svg" alt="Hand icon"> -->
+                            <h1>Welcome Back</h1>
+                            <!-- <h3>We are delighted to see you back on LetsPlay</h3> -->
+                        </div>
+                        <div class="form" [formGroup]="signinForm">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <div class="input_outer">
+                                    <input type="email" class="form-control" formControlName="email"
+                                        [(ngModel)]="credentials.email">
+                                    <!-- <small
+                                        *ngIf=" signinForm.controls['username'].hasError('email') && signinForm.controls['username'].touched"
+                                        class="form-error-msg">INVALID EMAIL ADDRESS</small>
+                                    <small
+                                        *ngIf=" signinForm.controls['username'].hasError('required') && signinForm.controls['username'].touched"
+                                        class="form-error-msg">USERNAME IS REQUIRED</small> -->
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <div class="input_outer">
+                                    <input type="password" class="form-control" formControlName="password"
+                                        [(ngModel)]="credentials.password" [type]="hide ? 'password' : 'text'">
+                                    <!-- <small
+                                        *ngIf=" signinForm.controls['password'].hasError('required') && signinForm.controls['password'].touched"
+                                        class="form-error-msg">PASSWORD IS REQUIRED</small> -->
+                                    <mat-icon class="field-icon" *ngIf="!hide" (click)="onPassword()"><svg width="17"
+                                            height="13" viewBox="0 0 17 13" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M0.875 6.375C0.875 6.375 3.875 1.125 8.375 1.125C12.875 1.125 15.875 6.375 15.875 6.375C15.875 6.375 12.875 11.625 8.375 11.625C3.875 11.625 0.875 6.375 0.875 6.375Z"
+                                                stroke="url(#paint0_linear)" stroke-miterlimit="10"
+                                                stroke-linecap="square" />
+                                            <path
+                                                d="M8.375 8.625C9.61764 8.625 10.625 7.61764 10.625 6.375C10.625 5.13236 9.61764 4.125 8.375 4.125C7.13236 4.125 6.125 5.13236 6.125 6.375C6.125 7.61764 7.13236 8.625 8.375 8.625Z"
+                                                stroke="url(#paint1_linear)" stroke-miterlimit="10"
+                                                stroke-linecap="square" />
+                                            <defs>
+                                                <linearGradient id="paint0_linear" x1="-11.5163" y1="11.625" x2="13.788"
+                                                    y2="11.625" gradientUnits="userSpaceOnUse">
+                                                    <stop offset="0.166667" stop-color="#B21F6B" />
+                                                    <stop offset="1" stop-color="#F15A29" />
+                                                </linearGradient>
+                                                <linearGradient id="paint1_linear" x1="2.40761" y1="8.625" x2="9.99891"
+                                                    y2="8.625" gradientUnits="userSpaceOnUse">
+                                                    <stop offset="0.166667" stop-color="#B21F6B" />
+                                                    <stop offset="1" stop-color="#F15A29" />
+                                                </linearGradient>
+                                            </defs>
+                                        </svg>
+                                    </mat-icon>
+
+                                    <mat-icon class="field-icon" *ngIf="hide" (click)="onPassword()"><svg width="17"
+                                            height="13" viewBox="0 0 17 13" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M0.875 6.375C0.875 6.375 3.875 1.125 8.375 1.125C12.875 1.125 15.875 6.375 15.875 6.375C15.875 6.375 12.875 11.625 8.375 11.625C3.875 11.625 0.875 6.375 0.875 6.375Z"
+                                                stroke="#C5CED6" stroke-miterlimit="10" stroke-linecap="square" />
+                                            <path
+                                                d="M8.375 8.625C9.61764 8.625 10.625 7.61764 10.625 6.375C10.625 5.13236 9.61764 4.125 8.375 4.125C7.13236 4.125 6.125 5.13236 6.125 6.375C6.125 7.61764 7.13236 8.625 8.375 8.625Z"
+                                                stroke="#C5CED6" stroke-miterlimit="10" stroke-linecap="square" />
+                                        </svg></mat-icon>
+
+                                </div>
+                            </div>
+                            <div class="sign_in_btn">
+                                <button class="SignBtn" (click)="signin()" [disabled]="signinForm.invalid">Sign
+                                    IN</button>
+                                <button (click)="cancel()" class="SignBtn cancel">Cancel</button>
+                            </div>
+                        </div>
+                        <div class="row forgot_password">
+                            <div class="col-md-6 forgot_text">
+                                <p>Not a member yet? <a class="cursor" routerLink="/sign-up">SIGN Up</a></p>
+                            </div>
+                            <div class="col-md-6 forgot_text right">
+                                <p><a class="cursor" (click)="onForgotPassword()">forgot password</a></p>
+                            </div>
+                        </div>
+                        <div class="copyright_text">
+                            <!-- <p>© 2020 Letsplay Holdings Inc.</p> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="otp_img">
+                        <img src="./assets/sign_in_img.jpg" alt="Sign In Image" class="img-fluid">
+                        <div class="otp_img_overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Modal -->
+    <button id="openModalButton" [hidden]="true" data-toggle="modal" data-target="#confirmModal">modal</button>
+    <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">ACTIVATE YOUR ACCOUNT</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Do you want to Activate you account ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
+                    <button type="button" data-dismiss="modal" class="btn btn-primary">CONFIRM</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<ngx-ui-loader></ngx-ui-loader>

@@ -1,0 +1,326 @@
+<app-header></app-header>
+<ng2-toasty></ng2-toasty>
+
+<body>
+
+    <section class="main_outer">
+
+        <div class="content_outer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- <app-breadcrumb></app-breadcrumb> -->
+                    </div>
+                </div>
+                <button class="my_class" (click)="sideBar()">
+                    <span class="icon icon-menu"></span>
+                </button>
+
+                <div class="MainContent">
+                    <div class="side_bar" [ngClass]="isSideBar ? 'side_bar_show' : 'side_bar_hide'">
+                        <div class="page_heading">
+                            <div class="profile_outer">
+                                <div class="profile_image">
+                                    <img *ngIf="user.avatar" src="{{user.avatar}}" alt="Profile Image">
+                                    <img *ngIf="!user.avatar" src="assets/profile_img.jpg" alt="Profile Image">
+
+                                </div>
+                                <div class="edit_profile">
+                                    <a>
+                                        <label class="cursor"> <input style="display: none;" #file accept="image/*"
+                                                (change)="fileSelect($event)" type="file" name="image" />
+                                            <img src="assets/edit_white.svg" alt="Profile Image">
+                                        </label>
+                                    </a>
+                                </div>
+                            </div>
+                            <h2>{{user.firstName}}</h2>
+                        </div>
+
+                        <div class="side_menu">
+                            <ul class="cursor">
+                                <li>
+                                    <a [class.active]="profile" (click)="onProfile()">Personal Details</a>
+                                </li>
+
+                                <li>
+                                    <a [class.active]="setting" (click)="onSetting()">Account Settings</a>
+                                </li>
+
+                                <li>
+                                    <a [class.active]="photos" (click)="onGallery()">Gallery</a>
+                                </li>
+
+                                <!-- <li>
+                                    <a [class.active]="notification">Notifications</a>
+                                </li> -->
+
+                            </ul>
+                        </div>
+
+                    </div>
+
+
+                    <div class="content_right">
+                        <!-- ----------------------------my profile------------------------------- -->
+
+                        <div *ngIf="isProfile" class="personal_details">
+                            <h2>Personal Details</h2>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <form [formGroup]="updateForm" class="details_form">
+                                        <div class="form-group">
+                                            <label>Full Name</label>
+                                            <input type="search" placeholder="Type" class="form-control"
+                                                formControlName="firstName" [(ngModel)]="user.firstName"
+                                                name="firstName">
+
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Email Address</label>
+                                            <input type="search" placeholder="" class="form-control"
+                                                formControlName="email" [(ngModel)]="user.email" name="email" readonly>
+                                        </div>
+
+                                        <!-- <div class="form-group">
+                                            <label>Address</label>
+                                            <input type="search" placeholder="Type" class="form-control" [formControl]="updateForm.controls['addressLine1']" [(ngModel)]="user.addressLine1" name="addressLine1">
+
+                                        </div> -->
+
+                                        <div class="form-group">
+                                            <label>Mobile Number</label>
+                                            <input type="search" placeholder="e.g. (555) 555 5555" class="form-control"
+                                                formControlName="phoneNumber" [(ngModel)]="user.phoneNumber"
+                                                name="phoneNumber">
+
+                                        </div>
+                                    </form>
+                                </div>
+
+
+                            </div>
+
+                            <div class="row bottom_arrow">
+                                <div class="col-12">
+                                    <a (click)="back()" class="back_arrow cursor"><span
+                                            class="icon-left-arrow"></span>Back</a>
+                                    <button (click)="updateProfile(user)"
+                                        class="btn_style save_btn cursor">Save</button>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                        <!-- ---------------account setting------------------------- -->
+                        <div *ngIf="isSetting" class="personal_details">
+                            <h2>Change Password</h2>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <form class="details_form" [formGroup]="resetPasswordForm">
+                                        <div class="form-group">
+                                            <label>Current Password</label>
+                                            <div class="input_outer">
+                                                <input type="password" placeholder="Type" class="form-control"
+                                                    formControlName="oldPassword"
+                                                    [(ngModel)]="resetPasswordData.oldPassword">
+                                                <!-- <small *ngIf=" resetPasswordForm.controls['oldPassword'].hasError('required') && resetPasswordForm.controls['oldPassword'].touched" class="form-error-msg">CAN'T LEAVE IT BLANK</small> -->
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>New Password</label>
+                                            <div class="input_outer">
+                                                <input type="password" placeholder="Type" class="form-control"
+                                                    formControlName="newPassword"
+                                                    [(ngModel)]="resetPasswordData.newPassword">
+                                                <!-- <small *ngIf=" resetPasswordForm.controls['newPassword'].hasError('required') && resetPasswordForm.controls['newPassword'].touched" class="form-error-msg">CAN'T LEAVE IT BLANK</small> -->
+                                            </div>
+                                        </div>
+
+
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="row bottom_arrow">
+                                <div class="col-12">
+                                    <a (click)="back()" class="back_arrow cursor"><span
+                                            class="icon-left-arrow"></span>Back</a>
+                                    <button (click)="resetPassword()" [disabled]="resetPasswordForm.invalid"
+                                        class="btn_style save_btn cursor">Save</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-----------------------gallery----------------------------- -->
+
+                        <div *ngIf="isPhotos" class="personal_details">
+                            <div class="mb-1 mt-1">
+                                <p class="label-text">Upload Images </p>
+                                <!-- <input type="file" ng2FileSelect [uploader]="uploader" /> -->
+                                <input #file accept="image/*" (change)="multiImgSelect($event)" type="file"
+                                    name="myfile" multiple="multiple" />
+                            </div>
+                            <span style="color:red;" *ngIf="msg">{{msg}}</span>
+                            <!-- <input #file type="file" accept='image/*' (change)="preview(file.files)" />    another way -->
+
+                            <div class="row">
+                                <div class="column" *ngFor="let image of imgURLS">
+                                    <img class="multiimages" [src]="image"> <br>
+
+                                </div>
+                            </div>
+
+                            <div>
+                                <button mat-raised-button class="mat-primary" [disabled]="!imgURLS"
+                                    (click)="uploadMultipleImages()">Upload</button>
+                                <button class="mt-1" style="align-items:flex-end;margin-left: 15px" mat-raised-button
+                                    (click)="back()" color="warn">Back</button>
+                            </div>
+
+                            <div class="row">
+                                <div class="column" *ngFor="let images of user.gallery">
+                                    <img (click)="open(mymodal,images.image)" class="multiimage" src="{{images.image}}">
+                                    <!-- <button class="removeImage"
+                                        (click)="deleteImage(user.id,images._id,images.image)">Delete</button> -->
+                                    <mat-icon class="removeImage"  (click)="deleteImage(user.id,images._id,images.image)">delete</mat-icon>
+
+                                </div>
+                            </div>
+                        </div>
+
+                     <!-- modal -->
+
+<ng-template  #mymodal  let-modal>
+    <div>
+     <div class="modal-body" >
+         <img class="selectedImg" src="{{selectedImg}}">
+     </div>
+ </div>
+     <div class="modal-footer"   >
+       <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+       </div>
+   </ng-template>            
+
+                        <!-- -------------------------------------------notification----------------------------- -->
+                        <div *ngIf="isNotification" class="personal_details">
+                            <h2>Notifications</h2>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form>
+                                        <div class="notifications">
+                                            <h3>Show Notifications</h3>
+                                            <label class="switch notification">
+                                                <input type="checkbox" checked>
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                        <div class="check_list">
+                                            <label class="ch-radio">
+                                                <input name="hiring" type="checkbox" checked>
+                                                <span>
+                                                    <i class="ch-icon icon-tick"></i>All
+                                                </span>
+                                            </label>
+                                            <label class="ch-radio">
+                                                <input name="hiring" type="checkbox">
+                                                <span>
+                                                    <i class="ch-icon icon-tick"></i>Lorem Ipsum
+                                                </span>
+                                            </label>
+                                            <label class="ch-radio">
+                                                <input name="hiring" type="checkbox">
+                                                <span>
+                                                    <i class="ch-icon icon-tick"></i>Lorem Ipsum
+                                                </span>
+                                            </label>
+                                            <label class="ch-radio">
+                                                <input name="hiring" type="checkbox">
+                                                <span>
+                                                    <i class="ch-icon icon-tick"></i>Lorem Ipsum
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!-- <h5 class="modal-title" id="exampleModalLabel">YOUR ACCOUNT IS ACTIVE NOW</h5> -->
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Do you really want to Activate or Deativate account ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
+                    <button type="button" data-dismiss="modal" class="btn btn-primary">CONFIRM</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--share Modal -->
+    <div class="modal fade search_modal password" id="SearchModal" data-backdrop="static" data-keyboard="false"
+        tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="icon-close"></span>
+                </button>
+                <div class="modal-body">
+                    <h2>Share</h2>
+                    <div class="share_option">
+                        <ul>
+                            <li>
+                                <a href="javascript:;">Facebook</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Messenger</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Email</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Whatsapp</a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Copylink</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <app-footer></app-footer> -->
+
+</body>
+<!-- <app-confirm-dialog></app-confirm-dialog> -->
+<ngx-ui-loader></ngx-ui-loader>

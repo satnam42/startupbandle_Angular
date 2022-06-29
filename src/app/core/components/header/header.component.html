@@ -1,0 +1,53 @@
+<body>
+
+  <header>
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-light header_main">
+
+        <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <a class="mr-auto cursor" (click)="logo()">
+            <!-- <img src="assets/download.png" alt="Logo"> -->
+            <h3 id="text">StartUp Bundle</h3>
+          </a>
+         
+
+          <div class="header_right row">
+            <a class="nav-link" routerLink="/search">
+              <span class="icon icon-chat">
+                <i class="fa fa-home " aria-hidden="true" id="home-icon"></i>
+                <!-- <mat-icon id="home-icon">home</mat-icon> -->
+              </span>
+            </a>
+            <a class="cursor" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              <div class="head_profile">
+                <div class="progress" id="progress">
+                  <span class="progress-left">
+                    <span class="progress-bar"></span>
+                  </span>
+                  <span class="progress-right">
+                    <span class="progress-bar"></span>
+                  </span>
+                  <img *ngIf="user.avatar" src="{{user.avatar}}" alt="Profile image">
+                  <img *ngIf="!user.avatar" src="assets/otheruser.jpeg" alt="Profile image">
+                  <!-- <img src="assets/profile_img.jpg" alt="Profile image"> -->
+
+                </div>
+              </div>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item cursor" (click)="profile()"><img src="assets/profile.svg"> Profile</a>
+              <a class="dropdown-item cursor" (click)="logout()"><img src="assets/logout.svg"> Logout</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+</body>

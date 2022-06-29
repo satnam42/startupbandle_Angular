@@ -1,0 +1,45 @@
+header {
+    background-color: #fff;
+    padding:0 35px;
+    box-shadow: inset 0px -1px 0px #E5E9EC;
+}
+
+header .logo {
+    max-width: 136px;
+}
+
+header .logo img {
+    max-width: 100%;
+}
+
+.content_outer {
+    padding-top: 99px;
+    padding-bottom: 36px;
+}
+
+header .navbar {
+    padding: 0;
+}
+
+header .navbar-light .navbar-nav .nav-link {
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 16px;
+    color: #494949;
+    padding: 9px 0;
+    margin-right: 35px;
+}
+
+header .navbar-nav .btn_style {
+    background-color: #53B2E8;
+    border-color: #53B2E8;
+    box-shadow: none;
+    border-radius: 26px;
+    font-weight: 600;
+    font-size: 13px;
+    color: #fff;
+}
+.text{
+    height: 50%;
+    width: 50%;
+}

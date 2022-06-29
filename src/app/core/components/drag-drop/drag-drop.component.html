@@ -1,0 +1,30 @@
+<div class="center">
+    <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)" [multiple]="isMultiple">
+
+        <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+            <span>Drag and Drop.</span>
+            <button type="button" class="btn btn-Grade" (click)="openFileSelector()">Browse Files</button>
+        </ng-template>
+    </ngx-file-drop>
+    <div class="upload-table">
+        <table class="table">
+            <thead>
+                <tr *ngIf="images.length">
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Size</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody class="upload-name-style">
+                <tr *ngFor="let item of images; let i=index">
+                    <td> <img src="{{item.url}}" style="width: 50px; height: 50px"></td>
+                    <td><strong>{{ item.name }}</strong></td>
+                    <td><strong>{{ item.size }}</strong></td>
+                    <td><button type="button" (click)="remove(i)">remove </button></td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- <button *ngIf="images.length" type="button" class="btn btn-Grade" (click)="upload()">upload</button> -->
+    </div>
+</div>

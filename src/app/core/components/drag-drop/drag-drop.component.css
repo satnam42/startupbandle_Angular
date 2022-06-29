@@ -1,0 +1,15 @@
+.btn.btn-Grade{
+    border: none;
+    padding: 0 10px;
+    min-width: 120px;
+    min-height: 28px;
+    line-height: 28px;
+    float: right;
+    color: #fff;
+    background: #777CEA;
+    font-size: 12px;
+    font-weight: 500;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+    text-transform: uppercase;
+}
